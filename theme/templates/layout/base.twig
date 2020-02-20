@@ -1,0 +1,50 @@
+{% if mainClass is not defined %}
+  {% set mainClass = [] %}
+{% endif %}
+
+{% if transition is not defined %}
+  {% set transition = 'swup-transition-fade' %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include "helpers/metadata.twig" %}
+
+    {% include "helpers/js.twig" %}
+    {% include "helpers/css.twig" %}
+
+    {% hook "seo" %}
+  </head>
+
+  <body class="bg-gray-100 text-gray-900">
+
+    <div id="layout">
+
+      {% block overlays %}
+        {% include "layout/overlays.twig" %}
+      {% endblock %}
+
+      {% block header %}
+        {% include "layout/page-header.twig" %}
+      {% endblock %}
+</div>
+
+    <div id="app">
+    
+      <main id="swup" class="page-{{ entry.slug }} {{ transition }} {{ mainClass|join(' ') }} z-10">
+        {% block main %}{% endblock %}
+
+        {% block scripts %}{% endblock %}
+      </main>
+
+      {% block footer %}
+        {% include "layout/page-footer.twig" %}
+      {% endblock %}
+</div>
+
+    {{ craft.twigpack.includeJsModule("common.js") }}
+    {{ craft.twigpack.includeJsModule("main.js") }}
+
+  </body>
+</html>

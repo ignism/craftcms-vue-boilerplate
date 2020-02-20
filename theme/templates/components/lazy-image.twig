@@ -1,0 +1,17 @@
+{% if size is not defined %}
+  {% set size = "landscape" %}
+{% endif %}
+{% if ratio is not defined %}
+  {% set ratio = "strict" %}
+{% endif %}
+
+{% set src="https://dummyimage.com/1280x720/646480/808096.png" %}
+{% set srcset="https://dummyimage.com/1280x720/646480/808096.png 1280w, https://dummyimage.com/2560x1440/646480/808096.png 2560w" %}
+{% set sizes="(max-width: 1280px) 1280px, 2560px" %}
+{% set preloadSrc="https://dummyimage.com/100x100/646480/808096.png" %}
+
+
+<div>
+  <lazy-image size="{{ size }}" ratio="{{ ratio }}" preload-src="{{ preloadSrc }}" lazy-src="{{ src }}" lazy-srcset="{{ srcset }}" sizes="{{ sizes }}"></lazy-image>
+</div>
+

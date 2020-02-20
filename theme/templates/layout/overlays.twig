@@ -1,0 +1,11 @@
+<div id="preloader" style="background: white; position: fixed; z-index: 9999; top: 0; bottom: 0; left: 0; right: 0;"></div>
+
+<div class="overlays z-30">
+    <nav-overlay class="z-10">
+      <div class="container nav-overlay__menu">
+        {% include "components/menu.twig" with {
+          isOverlay: true
+        } %}
+      </div>
+    </nav-overlay>
+</div>

@@ -1,0 +1,30 @@
+<page-header>
+  <div class="container">
+
+    {% block header %}
+
+      {% set query = craft.globalSets().handle("header") %}
+      {% set headerEntry = query.one() %}
+
+      <nav id="nav-bar" class="nav-bar" role="navigation">
+        <div class="nav-bar__logo mr-auto">
+          <a href="{{ siteUrl }}" v-on:click="eventBus.$emit('nav-hide')">
+            <span class="font-bold text-xl uppercase tracking-widest">Boilerplate</span>
+          </a>
+        </div>
+
+        <div class="nav-bar__menu">
+          {% include "components/menu.twig" %}
+        </div>
+
+        <div class="nav-bar__burger ml-auto" ref="burger" v-on:click="eventBus.$emit('nav-toggle')">
+          <span></span>
+          <span></span>
+        </div>
+
+      </nav>
+
+    {% endblock %}
+
+  </div>
+</page-header>

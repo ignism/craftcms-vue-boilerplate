@@ -1,0 +1,23 @@
+{# Default page #}
+
+{% extends "layout/base.twig" %}
+
+{% set mainClass = ['my-page-class', 'page-header-offset'] %}
+
+{% block main %}
+
+  <div class="min-h-screen relative bg-gray-300">
+    <three-container></three-container>
+  </div>
+
+  <scroll-trigger>
+    <section class="section">
+      <div class="container">
+        {% include "components/swiper.twig" %}
+      </div>
+    </section>
+  </scroll-trigger>
+
+{% endblock %}
+
+{% block scripts %}{% endblock %}

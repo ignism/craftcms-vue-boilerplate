@@ -1,0 +1,12 @@
+{% extends "core/base.twig" %}
+
+{% block main %}
+
+  <div id="app"></div>
+
+{% endblock %}
+
+
+{% block scripts %}
+  {{ craft.twigpack.includeJsModule("app.js") }}
+{% endblock %}

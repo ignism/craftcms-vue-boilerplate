@@ -1,0 +1,17 @@
+<footer class="section page-footer bg-gray-300 text-gray-600 z-50">
+  <div class="container">
+
+    {% block footer %}
+
+      {% set query = craft.globalSets().handle('footer') %}
+      {% set footerEntry = query.one() %}
+
+      <p>{{ footerEntry.footerText }}</p>
+      <p>&copy;
+        {{ "now"|date("Y") }}
+      </p>
+
+    {% endblock %}
+
+  </div>
+</footer>

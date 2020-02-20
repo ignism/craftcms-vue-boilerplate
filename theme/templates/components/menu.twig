@@ -1,0 +1,27 @@
+{% set sections = craft.app.sections.allSections %}
+
+{% if isOverlay is not defined %}
+  {% set isOverlay = false %}
+{% endif %} 
+
+<ul class="menu">
+
+  {% for section in sections %}
+
+    {% if section.type == "single" %}
+
+      {% set entry = craft.entries.sectionId(section.id).one() %}
+
+      {% if entry.menu == true %}
+
+        <li class="menu__item">
+          <a href="{{ entry.url }}" {% if isOverlay %}v-on:click="eventBus.$emit('nav-hide')"{% endif %}>{{ entry.title }}</a>
+        </li>
+
+      {% endif %}
+
+    {% endif %}
+
+  {% endfor %}
+
+</ul>

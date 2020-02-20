@@ -1,0 +1,14 @@
+{% if slides is not defined %}
+  {% set slides = [null, null, null, null] %}
+{% endif %}
+
+<swiper>
+    {% for slide in slides %}
+
+      <div class="swiper-slide">
+        {% include "components/lazy-image.twig" %}
+      </div>
+
+    {% endfor %}
+</swiper>
+

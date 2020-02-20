@@ -1,0 +1,29 @@
+{# Default page #}
+
+{% extends "layout/base.twig" %}
+
+{% set mainClass = ['my-page-class', 'page-header-offset'] %}
+
+{% block main %}
+
+  <section class="section min-h-screen">
+    <div class="container">
+
+      {% if entry.body %}
+        {{ entry.body }}
+      {% endif %}
+
+      <button class="block" v-on:click="eventBus.$emit('nav-toggle')">toggle nav</button>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container lazy-container" scroll-trigger="[fade, move]">
+      {% include "components/lazy-image.twig" %}
+    </div>
+  </section>
+
+{% endblock %}
+
+{% block scripts %}{% endblock %}
